@@ -9,7 +9,9 @@
     "wp": "NODE_ENV=production webpack --config webpack/webpack.config.js --progress --color -p --display-error-details --verbose",
     "build": "cp src/index.html lib/ && babel src --out-dir lib --sourceRoot src",
     "buildw": "cp src/index.html lib/ && babel src --out-dir lib -w --sourceRoot src",
-    "deploy": "npm run build && npm run wp"
+    "deploy": "npm run build && npm run wp",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "apollo-client": "^0.9.0",
@@ -28,7 +30,8 @@
     "react-dom": "^15.4.2",
     "react-fontawesome": "^1.1.0",
     "react-router": "^2.8.1",
-    "react-router-scroll": "^0.3.2"
+    "react-router-scroll": "^0.3.2",
+    "snyk": "^1.47.0"
   },
   "devDependencies": {
     "babel-cli": "6.7.7",
@@ -49,5 +52,6 @@
     "static-site-generator-webpack-plugin": "^2.1.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
-  }
+  },
+  "snyk": true
 }
